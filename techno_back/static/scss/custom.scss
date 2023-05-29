@@ -1,0 +1,34 @@
+$color-mode-type: data;
+
+@import "../bootstrap/scss/functions";
+
+$info:                                  #0dcaf0;
+$focus-ring-color:                      $info;
+$component-active-bg:                   $info;
+$info-text-emphasis-dark:               tint-color($info, 40%);
+$accordion-icon-color-dark:             #{$info-text-emphasis-dark};
+$accordion-icon-active-color-dark:      #{$info-text-emphasis-dark};
+
+$my-accordion-button-active-bg:         tint-color($info, 60%);
+$my-accordion-button-active-color:      shade-color($info, 40%);
+
+$my-accordion-button-active-bg-dark:    shade-color($info, 60%);
+$my-accordion-button-active-color-dark: tint-color($info, 40%);
+
+@import "../bootstrap/scss/mixins";
+
+@include color-mode(dark) {
+  .accordion {
+    --bs-accordion-active-color: #{$my-accordion-button-active-color-dark};
+    --bs-accordion-active-bg: #{$my-accordion-button-active-bg-dark};
+  }
+}
+
+@include color-mode(light) {
+  .accordion {
+    --bs-accordion-active-color: #{$my-accordion-button-active-color};
+    --bs-accordion-active-bg: #{$my-accordion-button-active-bg};
+  }
+}
+
+@import "../bootstrap/scss/bootstrap";

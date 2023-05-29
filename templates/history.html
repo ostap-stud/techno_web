@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Техно - електро жанр</title>
+  <link rel="icon" type="image/x-icon" href="https://img.icons8.com/ios/100/dj.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+</head>
+<body data-bs-theme="light">
+
+  <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'index' %}">
+        <img id="main-image" style="width: 40px; margin-right: 10px;" src="https://img.icons8.com/ios/100/dj.png" alt="dj">Самостійна робота</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'index' %}">Головна</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'history' %}">Історія</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Артисти
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'artist1' %}">Re:drum</a></li>
+              <li><a class="dropdown-item" href="{% url 'artist2' %}">BADWOR7H</a></li>
+              <li><a class="dropdown-item" href="{% url 'artist3' %}">Pledov</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">Про автора</a>
+          </li>
+        </ul>
+        <button id="theme-toggle-btn" class="btn btn-info" type="button">
+          <i class="bi bi-lightbulb"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-2">
+    <div class="row justify-content-center">
+      <div class="col-md-4 col-sm-12 mb-2">
+        <div id="list-example" class="list-group" style="position: sticky !important; top: 5rem;">
+          <a class="list-group-item list-group-item-action" href="#list-item-1">Визначення</a>
+          <a class="list-group-item list-group-item-action" href="#list-item-2">Особливості жанру</a>
+          <a class="list-group-item list-group-item-action" href="#list-item-3">Відмінності</a>
+          <a class="list-group-item list-group-item-action" href="#list-item-4">Історія</a>
+        </div>
+      </div>
+      <div class="col-md-8 col-sm-12">
+        <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+          <h4 id="list-item-1">Визначення</h4>
+          <p>
+            <a class="link-info link-underline-opacity-0" href="https://uk.wikipedia.org/wiki/%D0%A2%D0%B5%D1%85%D0%BD%D0%BE" target="_blank">Те́хно</a> (англ. Techno) — напрямок електронної музики, що зародився в середині 1980-х років у Детройті (США) та його околицях і згодом був підхоплений європейськими продюсерами. Характеризується штучністю звуку, підкреслено механічними ритмами, багаторазовими повтореннями структурних елементів музичного твору. Іноді термін «техно» вживають стосовно всієї електронної танцювальної музики, однак це не зовсім коректно — остання включає також напрямки хауз, транс, а також підстилі, такі як хардкор техно.
+          </p>
+          <h4 id="list-item-2">Особливості жанру</h4>
+          <p>Характеризується штучністю звуку, завдяки активному використанню семплювання, акцентом на механічних ритмах, багаторазовим повторенням структурних елементів музичного твору (лупи).</p>
+          <p>Є одним з основних музичних жанрів, виконуваних на рейвах.</p>
+          <p>Темп варіюється в межах 120-150 BPM.</p>
+          <p>Вокал практично не використовується. Коли це роблять, зазвичай вокал повторюється знову і знову і обробляється цифровим способом, щоб не звучати як природний людський голос.</p>
+          <p>Футуристичні звуки і роботизований вокал, мабуть, найхарактерніші риси техно-музики. Різниця між техно та іншою електронною музикою полягає в тому, що в техно чітко відчувається футуристичний дух. Від використання звуків роботів та інопланетян до дослідження науково-фантастичних тем, техно-виконавці хочуть показати сучасну та футуристичну атмосферу, наче музика походить із космосу.</p>
+          <p>Треки зазвичай оптимістичні та мають веселий тон, але не представляють швидкого ритму чи важкої басової лінії</p>
+          <p>Музика, написана в повільнішому ритмі, перебуває на межі веселощів і розслаблення.</p>
+          <h4 id="list-item-3">Відмінності в групі жанрів електронної танцювальної музики</h4>
+          <p>Різниця має бути досить помітною для відданих шанувальників, але іноді люди плутаються, тому що обидва види музики відносяться до одного і того ж жанру EDM.</p>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Показник</th>
+                <th scope="col">Техно</th>
+                <th scope="col">Хаус</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Звучання</th>
+                <td>тяжіє до похмурого футуристичного звучання і містить безліч спецефектів, які звучать сучасно і футуристично, включно зі спотвореними голосами</td>
+                <td>залишається у веселому тоні й танцювальному ритмі</td>
+              </tr>
+              <tr>
+                <th scope="row">Темп</th>
+                <td>125-135 ударів за хвилину, а іноді досягає 150 ударів за хвилину</td>
+                <td>115-125 ударів за хвилину</td>
+              </tr>
+              <tr>
+                <th scope="row">Аудиторія</th>
+                <td>навіть коли є багато техно-музикантів, які досягають успіху в індустрії, сам жанр відомий не так широко, як хаус-музика</td>
+                <td>отримує визнання з боку мейнстрім</td>
+              </tr>
+            </tbody>
+          </table>
+          <h4 id="list-item-4">Історія</h4>
+          <h5>Передумови</h5>
+          <p>Перші експерименти зі спробами домогтися механістичного, індустріального звучання належать до 1910-х років і до авангардної музики.</p>
+          <p>Згадку про музику, акцентом якої є механічні ритми верстатів і машин, можна зустріти в першому романі Курта Воннегута Механічне піаніно або Утопія 14 1952 року.</p>
+          <h5>Детройтське техно</h5>
+          <figure class="figure float-end w-50">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Model_500.jpg" class="figure-img rounded w-100" alt="...">
+            <figcaption class="figure-caption text-center">Аткінс виступає в ролі Model 500 на <a class="link-info link-underline-opacity-0" href="https://en.wikipedia.org/wiki/Detroit_Electronic_Music_Festival" target="_blank" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="top" data-bs-title="Detroit Electronic Music Festival" data-bs-content="Щорічний захід електронної танцювальної музики, що проводиться на батьківщині Техно, в Детройті, кожні вихідні Дня пам'яті, починаючи з 2006 року.">DEMF</a> у 2007 році.</figcaption>
+          </figure>
+          <p>Вважається, що техно винайшла так звана "Белвіллська трійця" - "ініціатор" <a class="link-info link-underline-opacity-0" href="https://en.wikipedia.org/wiki/Juan_Atkins" target="_blank" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="top" data-bs-title="Хуан Аткінс" data-bs-content="Американський музикант, який працює в жанрі Детройт-техно та електро. Є одним із першопрохідців у техно-музиці, його негласно звуть у техно-спільноті 'Ініціатором' ('The Originator'). Учасник численних проектів, серед яких: Cybotron, Model 500, Infiniti і 3MB. Власник власного лейбла Metroplex.">
+            Хуан Аткінс
+          </a> (англ. Juan Atkins, Originator), "новатор" <a class="link-info link-underline-opacity-0" href="https://en.wikipedia.org/wiki/Derrick_May_(musician)" target="_blank" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="top" data-bs-title="Дерік Мей" data-bs-content="Також відомий як Mayday і Rhythim Is Rhythim, - американський електронний музикант з Беллівілля, штат Мічиган, США. Мей вважається піонером техно-музики у 1980-х роках разом з Хуаном Аткінсом та Кевіном Сондерсоном, відомими як The Belleville Three.">
+            Дерік Мей
+          </a> (англ. Derrick May, Innovator) і "двигун" <a class="link-info link-underline-opacity-0" href="https://en.wikipedia.org/wiki/Kevin_Saunderson" target="_blank" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="top" data-bs-title="Кевін Сандерсон" data-bs-content="Американський діджей і продюсер електронної танцювальної музики. Він відомий тим, що разом з Хуаном Аткінсом і Дерріком Меєм був учасником тріо, яке стало відомим як Belleville Three, і яке часто вважають одним з піонерів і творців техно: зокрема, цей виступ допоміг визначити детройтське техно, найперший стиль цього музичного жанру. Народившись у Нью-Йорку, у віці дев'яти років він переїхав до Бельвіля, штат Мічиган, передмістя Детройта, де в середній школі Бельвіля подружився з іншими учасниками тріо.">
+            Кевін Сандерсон
+          </a> (англ. Kevin Saunderson, Elevator). У середині 1980-х років троє цих афроамериканців - друзів по коледжу із середньо-класового передмістя Детройта Белвілл, як вони самі кажуть, намагалися зробити німецьку електроніку в дусі Tangerine Dream і Kraftwerk більш танцювальною, придатною для діджеїв і клубів. Фактично ж можна говорити про те, що техно виникло під час злиття таких жанрів, як сінті-поп, електро та хаус.</p>
+          <p>Незважаючи на те, що першим техно-треком заведено вважати No UFO's від Model 500 (один із псевдонімів Хуана Аткінса), випущений ще 1985 року, сам жанр тривалий час не мав якоїсь певної назви. Раніше цю музику називали і просто хаусом, і новим диско, і навіть хіп-хопом. Ім'я техно жанр отримав 1988 року завдяки призначеній для Великої Британії компіляції з детройтської танцювальної музики під назвою "Techno! The New Dance Sound Of Detroit" і низці статей у журналах The Face і NME, де ця компіляція рекламувалася. Цікавий факт, що спочатку цю компіляцію передбачалося назвати саме "The House Sound Of Detroit". Але та музика, яка підходила під назву хаус, вироблялася в Чикаго, і звучала по-іншому. Тоді було ухвалено рішення задіяти слово техно, яке вже в принципі використовувалося деякими музикантами, але раніше асоціювалося більше з хіп-хопом. Успіх цієї компіляції зіграв свою роль - "новоявлений" жанр під назвою техно отримав визнання.</p>
+          <h5>Берлінське техно</h5>
+          <p>У Берліні вже в 1970-ті роки існувала своя традиція електронної музики, проте її представники дотримувалися експериментального стилю, невідповідного для танцполів, тому ця музика не набула масового поширення. Проте творчість таких представників школи, як Клаус Шульце і Tangerine Dream, надихнула тріо з Детройта (Хуана Аткінса, Дерріка Мея і Кевіна Сандерсона, пізніше названих творцями техно-музики), на створення більш танцювальної музики, придатної для програвання в клубах. Так з'явилося детройт-техно, яке потім знову повернулося до своїх географічних витоків і було добре сприйняте берлінськими музичними лейблами та продюсерами.</p>
+          <p>Формуванню берлінської техно-сцени сприяла також лондонська рейв-культура. У 1987-1988 рр. улюбленим жанром на лондонських рейвах був споріднений ейсід-хаус, який швидко поширився в інші європейські країни, зокрема в Німеччину. Отже, як самостійний жанр берлінське техно починає формуватися наприкінці 1980-х рр. і містить у собі риси детройт-техно і ейсід-хауса.</p>
+          <h5>Світове визнання</h5>
+          <p>Якщо у США техно-музика була тільки андеграундним явищем, то у Великій Британії вона вирвалася на основну музичну арену країни кінця 1980-х.</p>
+          <p>У грудні 2014 року в Берлінському університеті мистецтв розпочалася серія лекцій і конференція під загальною назвою "Techno studies. Естетика та історіографія електронної танцювальної музики". Техно почали вивчати в університетах.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer mt-auto py-3 bg-body-tertiary">
+    <div class="container text-center">
+      <a class="text-body-secondary link-underline link-underline-opacity-0" href="{% url 'about' %}">© Hryb Ostap. KN-213</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="{% static './js/toggle-theme.js' %}"></script>
+  <script src="{% static './js/popover-activate.js' %}"></script>
+</body>
+</html>
