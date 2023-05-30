@@ -1,15 +1,31 @@
 from django.shortcuts import render, redirect
+from django.views import generic
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 from .forms import FeedbackForm
-from .models import Feedback
+from .models import Feedback, Artist
+
+
+class ArtistView(generic.DetailView):
+    model = Artist
+
+    def get_context_data(self, **kwargs):
+        context = super(ArtistView, self).get_context_data(**kwargs)
+        context['artist_list'] = self.model.objects.all()
+        return context
+
+
+def artist_list_view(request, my_template_name):
+    artist_list = Artist.objects.all()
+    return render(request, f'{my_template_name}.html', context={'artist_list': artist_list,})
 
 
 def about_and_feedback(request):
     # Retrieve post by id
     new_feedback = Feedback()
+    artist_list = Artist.objects.all()
 
     if request.method == 'POST':
         # Form was submitted
@@ -22,7 +38,7 @@ def about_and_feedback(request):
             return redirect('about')
     else:
         form = FeedbackForm()
-    return render(request, 'about.html', {'form': form})
+    return render(request, 'about.html', {'form': form, 'artist_list': artist_list,})
 
 
 def index(request):
@@ -89,3 +105,4 @@ def about(request):
         'about.html',
         context={},
     )
+

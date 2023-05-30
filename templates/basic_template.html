@@ -1,5 +1,19 @@
-{% extends "basic_template.html" %}
-{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Техно - електро жанр</title>
+  <link rel="icon" type="image/x-icon" href="https://img.icons8.com/ios/100/dj.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+    {% block img-styles %}
+    {% endblock %}
+</head>
+<body data-bs-theme="light">
 {% block navbar %}
   <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary">
     <div class="container-fluid">
@@ -16,18 +30,16 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'history' %}">Історія</a>
           </li>
-            {% if artist_list %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Артисти
             </a>
             <ul class="dropdown-menu">
-                {% for artist in artist_list %}
-              <li><a class="dropdown-item" href="{{ artist.get_absolute_url }}">{{ artist.nickname }}</a></li>
-                {% endfor %}
+              <li><a class="dropdown-item" href="{% url 'artist1' %}">Re:drum</a></li>
+              <li><a class="dropdown-item" href="{% url 'artist2' %}">BADWOR7H</a></li>
+              <li><a class="dropdown-item" href="{% url 'artist3' %}">Pledov</a></li>
             </ul>
           </li>
-            {% endif %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'about' %}">Про автора</a>
           </li>
@@ -39,7 +51,7 @@
     </div>
   </nav>
 {% endblock %}
-{% block content %}
+  {% block content %}
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-4 col-md-9 d-flex flex-column justify-content-center align-items-center text-center">
@@ -94,7 +106,6 @@
     </div>
   </div>
 
-    {% if artist_list %}
   <div class="container-fluid">
     <div class="row bg-info-subtle">
       <div class="col">
@@ -103,89 +114,123 @@
             <div class="col-9">
               <h2 class="text-center mt-2">Українські техно артисти</h2>
               <div class="accordion accordion-flush mb-2" id="accordionFlushExample">
-                  {% for artist in artist_list %}
-                      {% if artist.id == 1 %}
                 <div class="accordion-item">
                   <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ artist.id }}" aria-expanded="true" aria-controls="flush-collapse{{ artist.id }}">
-                      {{ artist.nickname }}
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+                      Re:drum
                     </button>
                   </h2>
-                  <div id="flush-collapse{{ artist.id }}" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushExample">
+                  <div id="flush-collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                       <div class="row justify-content-center">
                         <div class="col-lg-3 col-md-4 col-sm-12">
-                          <a href="{{ artist.get_absolute_url }}">
-                            <img class="mb-2" src="{{ artist.index_img }}" width="100%">
+                          <a href="{% url 'artist1' %}">
+                            <img class="mb-2" src="https://i1.sndcdn.com/avatars-ujQhzRPNHlQvHClG-YPVj3g-t500x500.jpg" width="100%">
                           </a>
                           <ul class="nav list-unstyled d-flex justify-content-evenly align-items-center mb-2">
                             <li>
-                              <a class="text-muted" href="{{ artist.bandcamp }}">
+                              <a class="text-muted" href="https://redrummm.bandcamp.com/music">
                                 <i class="lab la-bandcamp" style="font-size: 2rem;" alt="Bandcamp"></i>
                               </a>
                             </li>
                             <li>
-                              <a class="text-muted" href="{{ artist.instagram }}">
+                              <a class="text-muted" href="https://www.instagram.com/re_drummm/">
                                 <i class="bi bi-instagram" style="font-size: 1.7rem;" alt="Instagram"></i>
                               </a>
                             </li>
                             <li>
-                              <a class="text-muted" href="{{ artist.soundcloud }}">
+                              <a class="text-muted" href="https://soundcloud.com/re_drummm">
                                 <i class="lab la-soundcloud" style="font-size: 2rem;" alt="SoundCloud"></i>
                               </a>
                             </li>
                           </ul>
                         </div>
                         <div class="col-lg-9 col-md-8 col-sm-12">
-                          <p>{{ artist.index_info }}</p>
-                          <a class="btn btn-info mb-3" href="{{ artist.get_absolute_url }}" role="button">Докладніше</a>
+                          <p>Re:drum - український продюсер, що базується в Одесі, резидент лейблу УТРО. Підтримуваний багатьма артистами, такими як Jensen Interceptor, Textasy та JKS, він відомий своїм лютим, потворним і перевантаженим звучанням, що поєднує drum'n'bass, індустріальні текстури та рейв-впливи.</p>
+                          <a class="btn btn-info mb-3" href="{% url 'artist1' %}" role="button">Докладніше</a>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                      {% else %}
-                          <div class="accordion-item">
+                <div class="accordion-item">
                   <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ artist.id }}" aria-expanded="false" aria-controls="flush-collapse{{ artist.id }}">
-                      {{ artist.nickname }}
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                      BADWOR7H
                     </button>
                   </h2>
-                  <div id="flush-collapse{{ artist.id }}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                  <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                       <div class="row justify-content-center">
                         <div class="col-lg-3 col-md-4 col-sm-12">
-                          <a href="{{ artist.get_absolute_url }}">
-                            <img class="mb-2" src="{{ artist.index_img }}" width="100%">
+                          <a href="{% url 'artist2' %}">
+                            <img class="mb-2" src="https://f4.bcbits.com/img/0029407321_10.jpg" width="100%">
                           </a>
                           <ul class="nav list-unstyled d-flex justify-content-evenly align-items-center mb-2">
                             <li>
-                              <a class="text-muted" href="{{ artist.bandcamp }}">
+                              <a class="text-muted" href="https://badwor7h.bandcamp.com/music">
                                 <i class="lab la-bandcamp" style="font-size: 2rem;" alt="Bandcamp"></i>
                               </a>
                             </li>
                             <li>
-                              <a class="text-muted" href="{{ artist.instagram }}">
+                              <a class="text-muted" href="https://www.instagram.com/badwor7h/">
                                 <i class="bi bi-instagram" style="font-size: 1.7rem;" alt="Instagram"></i>
                               </a>
                             </li>
                             <li>
-                              <a class="text-muted" href="{{ artist.soundcloud }}">
+                              <a class="text-muted" href="https://soundcloud.com/badwor7h">
                                 <i class="lab la-soundcloud" style="font-size: 2rem;" alt="SoundCloud"></i>
                               </a>
                             </li>
                           </ul>
                         </div>
                         <div class="col-lg-9 col-md-8 col-sm-12">
-                          <p>{{ artist.index_info }}</p>
-                          <a class="btn btn-info mb-3" href="{{ artist.get_absolute_url }}" role="button">Докладніше</a>
+                          <p>Його треки, що походять з жорсткого танцювального коріння 00-х, є гібридом рейв-спадщини та сучасного саунд-дизайну. Після десятиліття на Hardbass сцені, що принесло BADWOR7H різноманітні колаборації зі стовпами жанру та численні концерти по всій Європі, Дімік розширює рамки свого проекту, щоб створювати електронну музику, що виходить за межі стилістичних рамок.</p>
+                          <a class="btn btn-info mb-3" href="{% url 'artist2' %}" role="button">Докладніше</a>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                      {% endif %}
-                  {% endfor %}
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                      Pledov
+                    </button>
+                  </h2>
+                  <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                      <div class="row justify-content-center">
+                        <div class="col-lg-3 col-md-4 col-sm-12">
+                          <a href="{% url 'artist3' %}">
+                            <img class="mb-2" src="https://polygon.org.ua/src/imgs/artists/pledov.jpeg" width="100%">
+                          </a>
+                          <ul class="nav list-unstyled d-flex justify-content-evenly align-items-center mb-2">
+                            <li>
+                              <a class="text-muted" href="https://polygon.bandcamp.com/music">
+                                <i class="lab la-bandcamp" style="font-size: 2rem;" alt="Bandcamp"></i>
+                              </a>
+                            </li>
+                            <li>
+                              <a class="text-muted" href="https://www.instagram.com/pledov/">
+                                <i class="bi bi-instagram" style="font-size: 1.7rem;" alt="Instagram"></i>
+                              </a>
+                            </li>
+                            <li>
+                              <a class="text-muted" href="https://soundcloud.com/pledov">
+                                <i class="lab la-soundcloud" style="font-size: 2rem;" alt="SoundCloud"></i>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="col-lg-9 col-md-8 col-sm-12">
+                          <p>Бос лейблу Polygon, засновник фестивалів "Брудний Пес" та "Мистецтво - це зброя". PLEDOV - один з найактивніших представників української електронної сцени, який вкладає всю свою енергію в розвиток електронної індустрії, організовуючи численні заходи та проекти для просування молодих артистів.</p>
+                          <a class="btn btn-info mb-3" href="{% url 'artist3' %}" role="button">Докладніше</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -193,5 +238,18 @@
       </div>
     </div>
   </div>
-    {% endif %}
-{% endblock %}
+  {% endblock %}
+
+  <footer class="footer mt-auto py-3 bg-body-tertiary">
+    <div class="container text-center">
+      <a class="text-body-secondary link-underline link-underline-opacity-0" href="{% url 'about' %}">© Hryb Ostap. KN-213</a>
+    </div>
+  </footer>
+
+  <script src="{% static './js/toggle-theme.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    {% block popover-activate %}
+    {% endblock %}
+</body>
+</html>
