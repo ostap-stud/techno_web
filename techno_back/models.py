@@ -43,6 +43,6 @@ class Artist(models.Model):
 
     def get_absolute_url(self):
         """
-        Returns the url to access a particular book instance.
+        Returns the url to access a particular artist instance.
         """
         return reverse('artist', args=[str(self.id)])
